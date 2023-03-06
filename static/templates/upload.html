@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Repixelizor</title>
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="/static/templates/css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/static/templates/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="/static/templates/css/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <div class="hero_area">
+
+<section class="portfolio_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Our portfolio
+        </h2>
+        <p>
+          minim veniam, quis nostrud exercitation ullamco laboris nisi
+        </p>
+      </div>
+      <div class="box-2">
+        <div class="img-box b-2">
+          <div class="img-box b-1">
+            <img src="{{ url_for('display_image',filename=filename) }}" width="500" height="600" alt="">
+            <div class="btn-box">
+              <a href="" class="btn-1">
+
+              </a>
+            </div>
+          </div>
+          
+            </div>
+          </div>
+        </div>
+          <div class="container">
+          <div class="row">
+          <div class="column">
+            <form method="post" action="/home" enctype="multipart/form-data">
+              <dl>
+                  <p>
+                      <input type="file" name="file" class="form-control" autocomplete="off" required>
+                  </p>
+              </dl>
+              <p>
+                  <input type="submit" name="action" value="Submit" class="btn btn-info">
+              </p>
+          </form>
+        </div>
+          <div class="column">
+          <form name="process" action="/process" enctype="multipart/form-data">
+              <p>
+                  <input type="submit" name="action" value="Submit_process" class="btn btn-info" onclick="loading()">
+              </p>
+          </form>
+        </div>
+        <div class="column">
+          <form name="home"  action="/logout" enctype="multipart/form-data">
+              <p>
+                  <input type="submit" name="logout" value="logout" class="btn btn-info" >
+              </p>
+          </form>
+        </div>
+        <div class="column">
+          <form name="home"  action="/pay" enctype="multipart/form-data">
+              <p>
+                  <input type="submit" name="pay" value="pay" class="btn btn-info" >
+              </p>
+          </form>
+        </div>
+          </div>
+        </div>
+       
+      </div>
+      
+    </div>
+    
+  </section>
+  
+  </div>
+  </body>

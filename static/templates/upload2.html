@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Python Flask Upload and display image</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script >document.onreadystatechange=function loading() 
+{ if (document.readyState!="complete"){
+    document.querySelector("body").style.visibility="hidden";
+    document.querySelector("#loader").style.visibility="visible";}
+    else {
+        document.querySelector("body").style.visibility="visible";
+    document.querySelector("#loader").style.visibility="hidden"; 
+    }      
+    }
+</script>
+<style src="/static/css/style.css"></style>
+<style>#loader {
+    border: 12px solid;
+    border-radius: 50%;
+    border-top: 12px solid #4444;
+    width: 35px;
+    height: 35px;
+    animation: spin is linear infinite;
+    }
+    @keyframes spin {100% {transform: rotate(360deg);}
+        
+    }
+    .center {
+        position: relative;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    </style>
+</head>
+
+<body>
+<div id="loader" class="center"></div> 
+<p><h1 align="center">Python Flask Upload and display image</h1></p>
+
+<div class="container">
+<div class="row">
+    <h2>{{ name }} Select a file to upload</h2>
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    {% if filename %}
+        <div>
+            <img src="{{ url_for('display_image',filename=filename) }}" width="500" height="600">
+        </div>
+    {% endif %}
+    <form method="post" action="/home" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" class="form-control" autocomplete="off" required>
+            </p>
+        </dl>
+        <p>
+            <input type="submit" name="action" value="Submit" class="btn btn-info">
+        </p>
+    </form>
+    <form name="process" action="/process" enctype="multipart/form-data">
+        <p>
+            <input type="submit" name="action" value="Submit_process" class="btn btn-info" onclick="loading()">
+        </p>
+    </form>
+    <form name="home"  action="/logout" enctype="multipart/form-data">
+        <p>
+            <input type="submit" name="logout" value="logout" class="btn btn-info" >
+        </p>
+    </form>
+</div>
+</div>
+</body>
+</html>
